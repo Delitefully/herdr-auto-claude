@@ -1,0 +1,10 @@
+id = "herdr-auto-claude"
+name = "Auto Claude"
+version = "0.1.0"
+min_herdr_version = "0.9.1"
+description = "Start Claude Code in the first pane of every new space. New tabs and splits stay plain shells."
+platforms = ["macos", "linux"]
+
+[[events]]
+on = "workspace.created"
+command = ["sh", "start-claude.sh"]
