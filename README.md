@@ -63,3 +63,7 @@ herdr 0.9.1 or newer, on macOS or Linux. Nothing else: the script is POSIX `sh`
 and reads herdr's JSON with `grep`.
 
 Failures are recorded in `herdr plugin log list --plugin herdr-auto-claude`.
+
+## Spaces claimed by athena
+
+If you run [athena](https://github.com/Delitefully/athena), a chief-of-staff Claude that starts its own workers with a brief, it marks each space it creates with a claim file in `~/.local/state/athena/claims/` (or `$ATHENA_STATE_DIR/claims/`). The plugin leaves claimed spaces alone. `sh test/claim.sh` checks this.

@@ -1,5 +1,5 @@
 #!/bin/sh
-# Test: start-claude.sh leaves a space alone when its cwd has a athena claim file.
+# Test: start-claude.sh leaves a space alone when its cwd has an athena claim file.
 set -eu
 here=$(cd "$(dirname "$0")/.." && pwd)
 tmp=$(mktemp -d)
