@@ -1,5 +1,5 @@
 #!/bin/sh
-# Test: start-claude.sh leaves a space alone when its cwd has a cos claim file.
+# Test: start-claude.sh leaves a space alone when its cwd has a athena claim file.
 set -eu
 here=$(cd "$(dirname "$0")/.." && pwd)
 tmp=$(mktemp -d)
@@ -19,7 +19,7 @@ chmod +x "$tmp/herdr"
 
 run() {
 	: >"$tmp/calls"
-	HERDR_BIN_PATH="$tmp/herdr" COS_STATE_DIR="$tmp/state" \
+	HERDR_BIN_PATH="$tmp/herdr" ATHENA_STATE_DIR="$tmp/state" \
 		HERDR_PLUGIN_EVENT_JSON='{"workspace_id":"w7"}' sh "$here/start-claude.sh"
 }
 

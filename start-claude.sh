@@ -15,11 +15,11 @@ pane_json=$("$herdr" pane list --workspace "$workspace_id")
 panes=$(printf '%s' "$pane_json" | grep -o '"pane_id":"[^"]*"' | cut -d '"' -f 4)
 [ "$(printf '%s\n' "$panes" | grep -c .)" -eq 1 ] || exit 0
 
-# A cos chief of staff starts its own Claude, with a brief, in the spaces it
+# An athena chief of staff starts its own Claude, with a brief, in the spaces it
 # creates. It claims each one with a file named after the space's directory.
 cwd=$(printf '%s' "$pane_json" | grep -o '"cwd":"[^"]*"' | head -n 1 | cut -d '"' -f 4)
 [ -n "$cwd" ] && cwd=$(cd "$cwd" 2>/dev/null && pwd -P || printf '%s' "$cwd")
-claims="${COS_STATE_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/cos}/claims"
+claims="${ATHENA_STATE_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/athena}/claims"
 [ -n "$cwd" ] && [ -e "$claims/$(printf '%s' "$cwd" | shasum | cut -c 1-16)" ] && exit 0
 
 # Agent names must match [a-z][a-z0-9_-]{0,31} and be unique among live agents.
